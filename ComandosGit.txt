@@ -1,0 +1,124 @@
+Comandos git
+
+Configuracion basica
+	git config --global user.name "Nombre"		configurar el nombre que aparecen en los commits
+	git config --global user.email correo		configurar el correo que aparecen en los commits
+	
+	git config --global color.ui true		marco de colores para los comandos
+	
+ Iniciando repositorio
+	
+	git init						iniciamos GIT en la carpeta donde esta el proyecto
+	git clone (url) 				clonamos el repositorio de github o bitbucket
+	git add .						añadimos todos los archivos para el commit
+	git commit -m "comentarios"		hacemos el primer commit
+	git push origin master			subimos al repositorio
+
+	git clone
+		git clone (url)					clonamos el reposiorio de github o bitbucket
+		git clone (url)	git-demo		clonamos el repositorio de github o bitbucket
+	
+	git add
+		git add .						añadimos todos los archivos para el commit
+		git add (NombreArchivo.ext)		añadimos el archivo para el commit
+		git add --all 					añadimos todos los archivos para el commit omitiendo los nuevos
+		git add (directorio)/*.ext		añadimos todos los archivos dentro de un directorio y de una extencion epecificada
+		git add (directorio)/			añadimos todos los archivos dentro de un directorio
+
+	git commit
+		git commit -m "comentario"				carga en el HEAD los cambio realizados
+		git commit -a -m "comentario" 			agrega y carga en el HEAD los cambiios realizados
+
+		git commit -a 							de haber coflictos muestra git commit -a 
+		git commit --amend - m "comentario"		agregar al ultimo commit. este no se muestra como un nuevo commit en los logs. se puede especificar un nuevo mensaje
+
+	git push
+		git push (origen) (branch)		subimos al repositorio
+		git push --tags					subimos un tag 
+	
+	git log
+		git log 						mustra los log de los commits
+		git log --oneline --stat		muestra los cambios en los commits
+		git log --oneline --graph		muestra graficos en los commits
+
+	git diff
+		git diff						muestra los cambios realizados a un archivo
+		git diff --staged
+	
+	git head
+		git reset HEAD (NombreArchivo.ext)		saca un archivo del commit	
+		git reset (id commit) --soft			vuelve a la version del commit inidicado sin afectar los commits					
+		git reset --soft HEAD^					devuelve el ultimo commit que se hizo y pone los cambios en staging
+		git reset (id commit) --hard			vuelve a la version del commit inidicado borrando los commits anteriores 		
+		git reset --hard HEAD^					devuelve el ultimo commit y todos los cambios 
+		git reset --hard HEAD^^					devuelve los 2 ultimos commits t todos los cambios 
+		
+		git log									rollback merge/commit
+		git reset --hard (commit_sha)		
+
+	git remote
+		git remote add origin (url)				agregar repositorio remoto
+		git remote set-url origin (url)			cambiar de remote
+		git remote rm (name/origin)				remover repoditorio
+		git remote -v 							muestra lista repositorios
+		git remote show origin					muestra los branches remotos
+		git remote prune origin					limpiar todos los branches
+
+	git branch
+	
+		git branch (nameBranch)					crea un branch
+		git branch								lista los branches
+		git branch -d (nameBranch)				comando -d elimina el branch y lo une al master
+		git branch -D (nameBranch)				elimina sin preguntar
+
+	git tag
+		git tag									muestra una lista de todos los tag
+		git tag -a (version) -m "comentario"	crea un nuevo tag
+
+	git checkout
+		git checkout (name branch)									cambiar de branch	
+		git checkout (id commit) (NombreArchivo)					para ver el commit (si le damos add se guerdara como nuevo) 		
+		git master (Nombre de archivo)								volvemos a la version master del archivo
+		git checkout -- (file)										quita del HEAD un archivo y le pone el estafo de no trabajado
+		git checkout -b newlocalbranchname origin/branch-name		crea un branch en base a uno oneline
+		git checkout (nameBranch/tagname)							cambiar de branch
+
+	git rebase
+Los rebase se usan cuando trabajamos con branches esto hace que los branches se pongan al día con el master sin afectar al mismo
+		
+		git rebase								Une el branch actual con el mastar, esto no se puede ver como un merge
+
+cuando se produce un conflicto no das las siguientes opciones
+
+		git rebase --continue					cuando resolvemos los conflictos --continue cuntinua la secuencia del reabase donde se pauso
+		git rebase --skip						omite el conflicto y sigue su camino 
+		git reabase --abort						devuelve todo al principio del rebase
+		git rebase (nameBranch)					para hacer un rebase a un branch en especifico
+
+	otros comandos
+		git status 								lista un estado actuaol del repositorio con lista de archivos modificados o agregados
+
+		git pull origin (nameBranch)		 	busca los cambios nuevos y actualiza el repositorio
+
+		git merge (nameBranch)					une el branch actual con el especificado
+
+		git fetch								verifica cambios en el repoditorio online con el local
+
+		git rm (archivo)						borrar un archivo del repositorio
+		gti rm --cached 						elimina un archivo de nuestro repositorio local y del area de staging
+		git rm --force							elimina los archivos de git y del disco duro
+
+	fork
+
+		git remote add upstream (url)			descargar remote de un fork
+
+		git fetch upstream						merge con master de un fork
+		git merge upstream/master
+
+
+
+comentarios
+	cuando sale el cuadro y no le damos nungun comentario al commit le damos esc i para intertar texto
+	para guardar esc zz
+
+	antes de cambiar de branch siempre hacer un commit

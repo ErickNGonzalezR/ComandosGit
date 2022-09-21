@@ -1,0 +1,80 @@
+
+1. Creacion de llaves
+   2. EN EL ENTORNO LOCAL
+        PRIMERO VOLVEMOS AL HOME EN LA VENTANA DE Comandos
+            ssh-keygen -t rsa -b 4096 -C "correo electronico"    
+    
+            SI QUIERE COLOQUELE CONTRASEÑA
+
+3.Creacion de llaves en Windows y Linux
+    REVISAR QUE EL SERVIDOR DE LLAVES ESTE PRENDIDO CON 
+        EN EL GIT BASH
+            eval $(ssh-agent -s)
+    o
+        EN TERMINAL DE COMANDOS   
+            Get-Service ssh-agent
+    SI NO ESTA ACTIVO  ABRIR Windows PowerShell COMO ADMINISTRADOR
+        Get-Service ssh-agent
+        Set-Service ssh-agent -StartupType Manual
+
+    UTILIZAMOS EL GIT BASH
+        COMPIAMOS LA LLAVE PUBLICA
+            ssh-add (patch donde se encuentra la llave) 
+        SI LA LLAVE SE ENCUENTRA EN EL HOME    
+            ssh-add ~/.ssh/id_rsa
+
+3.Creacion de llaves en Mac
+    
+    PRIMERO VOLVEMOS AL HOME EN LA VENTANA DE Comandos
+        ssh-keygen -t rsa -b 4096 -C "correo electronico"    
+    
+    SI QUIERE COLOQUELE CONTRASEÑA
+
+    REVISAR QUE EL SERVIDOR DE LLAVES ESTE PRENDIDO CON 
+        eval "$(ssh-agent -s)"
+    
+    SI ESTA USANDO UN MAC MODERNO TIENE QUE CONFIGURAR O CREAR EL ARCHIVO CONFIG QUE SE ENCUENTRA DONDE ESTAN LOS .ssh
+
+    ENTRAMOS EN LA CARPETA .ssh 
+
+    VEMOS SI SE ENCUENTRA LA CARPETA CONFIG CON: ls -al
+    
+    SI NO ESTA LA CREAMOS: vim config 
+    
+    SE ABRE UN EDITOR DE TEXTO EN LA CONSOLA (TAMBIEN PUEDE CREARLO CON UN EDITOR DE TEXTO)
+    (ESCRIBIMOS EN EL EDITOR) EL ARCHITO NO DEBE TENER EXTENCION
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    HOST *
+        AddKEyToAgent yes
+        UseKeychain yes
+        IdentityFile ~/.ssh/id_rsa
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    PARA GUARDAR
+    ecs+shit+zz
+
+    PARA FINALIZAR
+        ssh-add -k ~/.ssh/id_rsa
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+4.COPIAPIAMOS LA LLAVE PUBLICA
+
+5.ENTRAMOS A GITHUB 
+
+6. VAMOS AL PERFIL Y ENTRAMOS EN SETTINGS
+
+7. ENTRAMOS A SSH and GPG keys
+
+8. CREAMOS UNA NUEVA LLAVE SSH
+
+9. VAMOS AL REPOSITORIO EN GUTHUB
+
+10. CLONAMOS ES REPOSITORIO CON SSH
+
+11. VEMOS LA URL DEL REPOSITORIO
+    git remote -v
+
+12. CAMBIAMOS LA URL DEL REPOSITORIO
+    git remote set-url origin (url ssh)
