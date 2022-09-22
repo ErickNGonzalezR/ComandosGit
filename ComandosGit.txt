@@ -71,12 +71,14 @@ Configuracion basica
 	
 		git branch (nameBranch)					crea un branch
 		git push origin (nombre del branch)		lleva al repositorio un branch
+		git pull origin (nombre del branch)		trae el branch del repositorio
 		git branch								lista los branches
 		git branch -d (nameBranch)				comando -d elimina el branch y lo une al master
 		git branch -D (nameBranch)				elimina sin preguntar
 		git show-branch							muestra cuales son las ramas que existen y cual es su historia
 		git show-branch --all					muestra mas datos
 		gitk									abre lo mismo pero visual
+	
 	git tag
 		git tag									muestra una lista de todos los tag
 		git tag -a (version nombre del tag) -m "comentario"	crea un nuevo tag" (nombre del commit a el que quiere colocarle un tag)
