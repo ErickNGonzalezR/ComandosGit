@@ -133,7 +133,7 @@ cuando se produce un conflicto no das las siguientes opciones
 
 comentarios
 	cuando sale el cuadro y no le damos nungun comentario al commit le damos esc i para intertar texto
-	para guardar esc zz
+	para guardar esc+shif+zz
 
 	antes de cambiar de branch siempre hacer un commit
 FIN
