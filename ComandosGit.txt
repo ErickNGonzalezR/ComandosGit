@@ -1,10 +1,12 @@
 Comandos git
 
+PARA CREAR ALIAS 
+	alias (alias que quieres que tenga el comando)="(comando)"
+
 Configuracion basica
 	git config --global user.name "Nombre"		configurar el nombre que aparecen en los commits
 	git config --global user.email correo		configurar el correo que aparecen en los commits
-	
-	git config --global color.ui true		marco de colores para los comandos
+	git config --global color.ui true			marco de colores para los comandos
 	
  Iniciando repositorio
 	
@@ -37,9 +39,10 @@ Configuracion basica
 		git push --tags					subimos un tag 
 	
 	git log
-		git log 						mustra los log de los commits
-		git log --oneline --stat		muestra los cambios en los commits
-		git log --oneline --graph		muestra graficos en los commits
+		git log 											mustra los log de los commits
+		git log --oneline --stat							muestra los cambios en los commits
+		git log --oneline --graph							muestra graficos en los commits
+		git log --oneline --graph --decorate --oneline 		muestra los commits y los branches de forma ordenada
 
 	git diff
 		git diff						muestra los cambios realizados a un archivo
@@ -63,17 +66,26 @@ Configuracion basica
 		git remote -v 							muestra lista repositorios
 		git remote show origin					muestra los branches remotos
 		git remote prune origin					limpiar todos los branches
-
+		
 	git branch
 	
 		git branch (nameBranch)					crea un branch
+		git push origin (nombre del branch)		lleva al repositorio un branch
+		git pull origin (nombre del branch)		trae el branch del repositorio
 		git branch								lista los branches
 		git branch -d (nameBranch)				comando -d elimina el branch y lo une al master
 		git branch -D (nameBranch)				elimina sin preguntar
-
+		git show-branch							muestra cuales son las ramas que existen y cual es su historia
+		git show-branch --all					muestra mas datos
+		gitk									abre lo mismo pero visual
+	
 	git tag
 		git tag									muestra una lista de todos los tag
-		git tag -a (version) -m "comentario"	crea un nuevo tag
+		git tag -a (version nombre del tag) -m "comentario"	crea un nuevo tag" (nombre del commit a el que quiere colocarle un tag)
+		git push --tags							para mandar los tags al repositorio 
+		git tag -d (nombre de tag)				elimina el tag internamente
+		git push origin :refs/tags/(NomTAg)		elimina el tag en el repositorio
+
 
 	git checkout
 		git checkout (name branch)									cambiar de branch	
