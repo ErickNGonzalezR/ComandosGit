@@ -124,7 +124,8 @@ cuando se produce un conflicto no das las siguientes opciones
 
 	fork
 
-		git remote add upstream (url)			descargar remote de un fork
+		git remote add ("upstream" OPCIONAL ESE NOMBRE) (url)			descargar remote de un fork
+		git pull upstream master										trae e fork
 
 		git fetch upstream						merge con master de un fork
 		git merge upstream/master
@@ -136,4 +137,19 @@ comentarios
 	para guardar esc+shif+zz
 
 	antes de cambiar de branch siempre hacer un commit
-FIN
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CUANDO HAY ERRORES SE CREA UNA NUEVA RAMA QUE SE LLAME FIX-TYPO
+
+GITHUP
+	NEW PULL REQUEST								COMPARA CAMBIOS MINIMOS O AGREGAR DETALLES EN GITHUP SIN HACER UN MERGE 
+	COMPARE & PULL REQUEST
+
+IGNORAR ARCHIVOS 
+	CREAR archivo EN EL REPOSITORIO LOCAL .gitignore 
+	va ha ser una lista de los archivos que vamos a ignorar 
+
+	* .jpg
+
+EJEMPLO 
+LARAVEL ES UN FRIMEWORWE DE PHP
