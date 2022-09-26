@@ -34,8 +34,7 @@ Configuracion basica
 		git commit -a -m "comentario" 			agrega y carga en el HEAD los cambiios realizados
 
 		git commit -a 							de haber coflictos muestra git commit -a 
-		git commit --amend - m "comentario"		agregar al ultimo commit. este no se muestra como un nuevo commit en los logs. se puede especificar un nuevo mensaje
-
+		git commit --amend - m "comentario"		agrega un archivo que no le hayamos echo commit al commit actual  
 	git push
 		git push (origen) (branch)		subimos al repositorio
 		git push --tags					subimos un tag 
@@ -80,7 +79,9 @@ Configuracion basica
 		git show-branch							muestra cuales son las ramas que existen y cual es su historia
 		git show-branch --all					muestra mas datos
 		gitk									abre lo mismo pero visual
-	
+		git branch -r 							vemos los branch que estan en el servidor
+		git branch -a							vemos todos los branch que hay 
+
 	git tag
 		git tag									muestra una lista de todos los tag
 		git tag -a (version nombre del tag) -m "comentario"	crea un nuevo tag" (nombre del commit a el que quiere colocarle un tag)
@@ -98,9 +99,12 @@ Configuracion basica
 		git checkout (nameBranch/tagname)							cambiar de branch
 
 	git rebase
-Los rebase se usan cuando trabajamos con branches esto hace que los branches se pongan al día con el master sin afectar al mismo
-		
-		git rebase								Une el branch actual con el mastar, esto no se puede ver como un merge
+		es para pegar cambios a la historia del master sin que se nadie se de cuenta  (NO SE TIENE QUE HACER EL REPOSITORIOS REMOTOS), para despues borrar el branch
+		1. se crea un nuevo branch y se cambia lo que toque cambiar
+		2. se hace el rebase desde el branch nuevo 
+		3. se hace el rebase desde el branch master o main 
+		4. borrar el branch
+		git rebase (nombre del branch)								Une el branch actual con el master, esto no se puede ver como un merge
 
 cuando se produce un conflicto no das las siguientes opciones
 
@@ -109,7 +113,18 @@ cuando se produce un conflicto no das las siguientes opciones
 		git reabase --abort						devuelve todo al principio del rebase
 		git rebase (nameBranch)					para hacer un rebase a un branch en especifico
 
+	git reset
+		git reflog									muestra todos los head que han existido
+		git reset --hard (head)						resetea todo antes del commit 
+		git reset --soft (head)						
+
 	otros comandos
+		git stash 								vuele el codigo al estado anterior 
+		git stash pop 							colvemos al stash anterior
+		git stash list 							vemos donde esta el lugar temporal
+		git stash branch (nombreRama)			para el stash a una rama
+		git stash drop							elimina el stash
+
 		git status 								lista un estado actuaol del repositorio con lista de archivos modificados o agregados
 
 		git pull origin (nameBranch)		 	busca los cambios nuevos y actualiza el repositorio
@@ -118,9 +133,14 @@ cuando se produce un conflicto no das las siguientes opciones
 
 		git fetch								verifica cambios en el repoditorio online con el local
 
+		git clean --dry-run						simula los archivos que queremos borrar
+		git clean -f 							borra archuvos 
+
 		git rm (archivo)						borrar un archivo del repositorio
 		gti rm --cached 						elimina un archivo de nuestro repositorio local y del area de staging
 		git rm --force							elimina los archivos de git y del disco duro
+
+		git cherry-pick (commit)				traigo un commit de una rama a otra 
 
 	fork
 
@@ -130,7 +150,13 @@ cuando se produce un conflicto no das las siguientes opciones
 		git fetch upstream						merge con master de un fork
 		git merge upstream/master
 
+BUSCAR PALABRAS EN LOS ARCHIVOS	
+		git grep (palabra)						busca cuantas veces usamos una palabra en la rama 
+		git grep -n (palabra)					muestra la linea donde se uso esa palabra
+		git grep -c (palabra)					cuenta la cantidad de veces que esta la palablra 
 
+BUSCAR PALABRAS EN LOS commits	
+		git log -S "palabra"					busca en los commits la palabra
 
 comentarios
 	cuando sale el cuadro y no le damos nungun comentario al commit le damos esc i para intertar texto
@@ -139,7 +165,11 @@ comentarios
 	antes de cambiar de branch siempre hacer un commit
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-CUANDO HAY ERRORES SE CREA UNA NUEVA RAMA QUE SE LLAME FIX-TYPO
+
+CUANDO HAY UN ERROR CREO UN NUEVO BRANCH LLAMADO bugfix
+
+CUANDO HAY ERRORES SE CREA UNA NUEVA RAMA QUE SE LLAME FIX-TYPO pequeños errores 
+
 
 GITHUP
 	NEW PULL REQUEST								COMPARA CAMBIOS MINIMOS O AGREGAR DETALLES EN GITHUP SIN HACER UN MERGE 
@@ -153,3 +183,28 @@ IGNORAR ARCHIVOS
 
 EJEMPLO 
 LARAVEL ES UN FRIMEWORWE DE PHP
+
+Readme.md 
+	es informacion del repocitorio
+	editor para hacer el readme.md https://pandao.github.io/editor.md/en.html
+
+
+SERVICIO DE HOSTING GRATIS
+
+	https://pages.github.com
+	para usarlo 
+	1. crear un repositorio nuevo que tenga tu nombredeususario.github.io
+	2. luego clonelo en su maquina
+	3. cremaos el index y realizamos todo el proceso de git
+	4. vamos al repositorio y damos click en settings
+	5. buscamos pages 
+	6. va ha salir GitHup pages cambiamos branch none por el master o main
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+COMANDOS PARA VER QUIEN HIZO QUE
+	git	shortlog -sn --all --no-merges						 	cuantos commits a hecho cada miembro 
+	git blame -c (archivo)										para ver quien hizo que de un archivo			
+	git blame (archivo) -L(linea1,linea2) -c					quien hizo que en linea1 hasta linea2
+	git
+
+git config--global alias.(nombreAlias) "shortlog -sn --all --no-merges"			para crear sobrenombres a los comandos	 
