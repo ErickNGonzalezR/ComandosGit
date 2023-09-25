@@ -1,8 +1,8 @@
 
-1. Creacion de llaves
+1. Creación de llaves
    2. EN EL ENTORNO LOCAL
         PRIMERO VOLVEMOS AL HOME EN LA VENTANA DE Comandos
-            ssh-keygen -t rsa -b 4096 -C "correo electronico"    
+            ssh-keygen -t rsa -b 4096 -C "correo electrónico"    
     
             SI QUIERE COLOQUELE CONTRASEÑA
 
@@ -13,7 +13,7 @@
     o
         EN TERMINAL DE COMANDOS   
             Get-Service ssh-agent
-    SI NO ESTA ACTIVO  ABRIR Windows PowerShell COMO ADMINISTRADOR
+    SI NO ESTA ACTIVO ABRIR Windows PowerShell COMO ADMINISTRADOR
         Get-Service ssh-agent
         Set-Service ssh-agent -StartupType Manual
 
@@ -26,7 +26,7 @@
 3.Creacion de llaves en Mac
     
     PRIMERO VOLVEMOS AL HOME EN LA VENTANA DE Comandos
-        ssh-keygen -t rsa -b 4096 -C "correo electronico"    
+        ssh-keygen -t rsa -b 4096 -C "correo electrónico"    
     
     SI QUIERE COLOQUELE CONTRASEÑA
 

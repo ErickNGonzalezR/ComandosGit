@@ -1,48 +1,47 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Comandos git
 
 PARA CREAR ALIAS 
 	alias (alias que quieres que tenga el comando)="(comando)"
 
-Configuracion basica
+Configuración básica
 	git config --global user.name "Nombre"		configurar el nombre que aparecen en los commits
 	git config --global user.email correo		configurar el correo que aparecen en los commits
 	git config --global color.ui true			marco de colores para los comandos
 	
  Iniciando repositorio
 	
-	git init						iniciamos GIT en la carpeta donde esta el proyecto
-	git clone (url) 				clonamos el repositorio de github o bitbucket
+	git init						iniciamos GIT en la carpeta donde está el proyecto
+	git clone (url) 				clonamos el repositorio de github o gitbucket
 	git add .						añadimos todos los archivos para el commit
 	git commit -m "comentarios"		hacemos el primer commit
 	git push origin master			subimos al repositorio
 
 	git clone
-		git clone (url)					clonamos el reposiorio de github o bitbucket
+		git clone (url)					clonamos el repositorio de github o bitbucket
 		git clone (url)	git-demo		clonamos el repositorio de github o bitbucket
 	
 	git add
 		git add .						añadimos todos los archivos para el commit
 		git add (NombreArchivo.ext)		añadimos el archivo para el commit
 		git add --all 					añadimos todos los archivos para el commit omitiendo los nuevos
-		git add (directorio)/*.ext		añadimos todos los archivos dentro de un directorio y de una extencion epecificada
+		git add (directorio)/*.ext		añadimos todos los archivos dentro de un directorio y de una extensión especificada
 		git add (directorio)/			añadimos todos los archivos dentro de un directorio
 
 	git commit
-		git commit -m "comentario"				carga en el HEAD los cambio realizados
+		git commit -m "comentario"				carga en el HEAD los cambios realizados
 		git commit -a -m "comentario" 			agrega y carga en el HEAD los cambiios realizados
 
-		git commit -a 							de haber coflictos muestra git commit -a 
-		git commit --amend - m "comentario"		agrega un archivo que no le hayamos echo commit al commit actual  
+		git commit -a 							de haber conflictos muestra git commit -a 
+		git commit --amend - m "comentario"		agrega un archivo que no le haya echo commit al commit actual  
 	git push
 		git push (origen) (branch)		subimos al repositorio
 		git push --tags					subimos un tag 
 	
 	git log
-		git log 											mustra los log de los commits
+		git log 											muestra los log de los commits
 		git log --oneline --stat							muestra los cambios en los commits
-		git log --oneline --graph							muestra graficos en los commits
+		git log --oneline --graph							muestra gráficos en los commits
 		git log --oneline --graph --decorate --oneline 		muestra los commits y los branches de forma ordenada
 
 	git diff
@@ -51,11 +50,11 @@ Configuracion basica
 	
 	git head
 		git reset HEAD (NombreArchivo.ext)		saca un archivo del commit	
-		git reset (id commit) --soft			vuelve a la version del commit inidicado sin afectar los commits					
+		git reset (id commit) --soft			vuelve a la versión del commit indicado sin afectar los commits					
 		git reset --soft HEAD^					devuelve el ultimo commit que se hizo y pone los cambios en staging
-		git reset (id commit) --hard			vuelve a la version del commit inidicado borrando los commits anteriores 		
+		git reset (id commit) --hard			vuelve a la versión del commit indicado borrando los commits anteriores 		
 		git reset --hard HEAD^					devuelve el ultimo commit y todos los cambios 
-		git reset --hard HEAD^^					devuelve los 2 ultimos commits t todos los cambios 
+		git reset --hard HEAD^^					devuelve los 2 últimos commits t todos los cambios 
 		
 		git log									rollback merge/commit
 		git reset --hard (commit_sha)		
@@ -63,7 +62,7 @@ Configuracion basica
 	git remote
 		git remote add origin (url)				agregar repositorio remoto
 		git remote set-url origin (url)			cambiar de remote
-		git remote rm (name/origin)				remover repoditorio
+		git remote rm (name/origin)				remover repositorio
 		git remote -v 							muestra lista repositorios
 		git remote show origin					muestra los branches remotos
 		git remote prune origin					limpiar todos los branches
@@ -76,15 +75,15 @@ Configuracion basica
 		git branch								lista los branches
 		git branch -d (nameBranch)				comando -d elimina el branch y lo une al master
 		git branch -D (nameBranch)				elimina sin preguntar
-		git show-branch							muestra cuales son las ramas que existen y cual es su historia
-		git show-branch --all					muestra mas datos
+		git show-branch							muestra cuales son las ramas que existen y cuál es su historia
+		git show-branch --all					muestra más datos
 		gitk									abre lo mismo pero visual
-		git branch -r 							vemos los branch que estan en el servidor
+		git branch -r 							vemos los branch que están en el servidor
 		git branch -a							vemos todos los branch que hay 
 
 	git tag
-		git tag									muestra una lista de todos los tag
-		git tag -a (version nombre del tag) -m "comentario"	crea un nuevo tag" (nombre del commit a el que quiere colocarle un tag)
+		git tag									muestra una lista de todos los tags
+		git tag -a (versión nombre del tag) -m "comentario"	crea un nuevo tag" (nombre del commit a el que quiere colocarle un tag)
 		git push --tags							para mandar los tags al repositorio 
 		git tag -d (nombre de tag)				elimina el tag internamente
 		git push origin :refs/tags/(NomTAg)		elimina el tag en el repositorio
@@ -92,14 +91,14 @@ Configuracion basica
 
 	git checkout
 		git checkout (name branch)									cambiar de branch	
-		git checkout (id commit) (NombreArchivo)					para ver el commit (si le damos add se guerdara como nuevo) 		
-		git master (Nombre de archivo)								volvemos a la version master del archivo
+		git checkout (id commit) (NombreArchivo)					para ver el commit (si le damos add se guardará como nuevo) 		
+		git master (Nombre de archivo)								volvemos a la versión master del archivo
 		git checkout -- (file)										quita del HEAD un archivo y le pone el estafo de no trabajado
-		git checkout -b newlocalbranchname origin/branch-name		crea un branch en base a uno oneline
+		git checkout -b newlocalbranchname origin/branch-name		crea un branch en base a uno online
 		git checkout (nameBranch/tagname)							cambiar de branch
 
 	git rebase
-		es para pegar cambios a la historia del master sin que se nadie se de cuenta  (NO SE TIENE QUE HACER EL REPOSITORIOS REMOTOS), para despues borrar el branch
+		es para pegar cambios a la historia del master sin que se nadie se dé cuenta  (NO SE TIENE QUE HACER EL REPOSITORIOS REMOTOS), para después borrar el branch
 		1. se crea un nuevo branch y se cambia lo que toque cambiar
 		2. se hace el rebase desde el branch nuevo 
 		3. se hace el rebase desde el branch master o main 
@@ -108,7 +107,7 @@ Configuracion basica
 
 cuando se produce un conflicto no das las siguientes opciones
 
-		git rebase --continue					cuando resolvemos los conflictos --continue cuntinua la secuencia del reabase donde se pauso
+		git rebase --continue					cuando resolvemos los conflictos --continue continua la secuencia del reabase donde se pauso
 		git rebase --skip						omite el conflicto y sigue su camino 
 		git reabase --abort						devuelve todo al principio del rebase
 		git rebase (nameBranch)					para hacer un rebase a un branch en especifico
@@ -119,25 +118,25 @@ cuando se produce un conflicto no das las siguientes opciones
 		git reset --soft (head)						
 
 	otros comandos
-		git stash 								vuele el codigo al estado anterior 
-		git stash pop 							colvemos al stash anterior
-		git stash list 							vemos donde esta el lugar temporal
+		git stash 								vuele el código al estado anterior 
+		git stash pop 							volvemos al stash anterior
+		git stash list 							vemos donde está el lugar temporal
 		git stash branch (nombreRama)			para el stash a una rama
 		git stash drop							elimina el stash
 
-		git status 								lista un estado actuaol del repositorio con lista de archivos modificados o agregados
+		git status 								lista un estado actual del repositorio con lista de archivos modificados o agregados
 
 		git pull origin (nameBranch)		 	busca los cambios nuevos y actualiza el repositorio
 
 		git merge (nameBranch)					une el branch actual con el especificado
 
-		git fetch								verifica cambios en el repoditorio online con el local
+		git fetch								verifica cambios en el repositorio online con el local
 
 		git clean --dry-run						simula los archivos que queremos borrar
-		git clean -f 							borra archuvos 
+		git clean -f 							borra archivos 
 
 		git rm (archivo)						borrar un archivo del repositorio
-		gti rm --cached 						elimina un archivo de nuestro repositorio local y del area de staging
+		gti rm --cached 						elimina un archivo de nuestro repositorio local y del área de staging
 		git rm --force							elimina los archivos de git y del disco duro
 
 		git cherry-pick (commit)				traigo un commit de una rama a otra 
@@ -152,14 +151,14 @@ cuando se produce un conflicto no das las siguientes opciones
 
 BUSCAR PALABRAS EN LOS ARCHIVOS	
 		git grep (palabra)						busca cuantas veces usamos una palabra en la rama 
-		git grep -n (palabra)					muestra la linea donde se uso esa palabra
-		git grep -c (palabra)					cuenta la cantidad de veces que esta la palablra 
+		git grep -n (palabra)					muestra la línea donde se usó esa palabra
+		git grep -c (palabra)					cuenta la cantidad de veces que esta la palabra 
 
 BUSCAR PALABRAS EN LOS commits	
 		git log -S "palabra"					busca en los commits la palabra
 
 comentarios
-	cuando sale el cuadro y no le damos nungun comentario al commit le damos esc i para intertar texto
+	cuando sale el cuadro y no le damos ningún comentario al commit le damos esc i para intentar texto
 	para guardar esc+shif+zz
 
 	antes de cambiar de branch siempre hacer un commit
@@ -185,7 +184,7 @@ EJEMPLO
 LARAVEL ES UN FRIMEWORWE DE PHP
 
 Readme.md 
-	es informacion del repocitorio
+	es información del repositorio
 	editor para hacer el readme.md https://pandao.github.io/editor.md/en.html
 
 
@@ -194,8 +193,8 @@ SERVICIO DE HOSTING GRATIS
 	https://pages.github.com
 	para usarlo 
 	1. crear un repositorio nuevo que tenga tu nombredeususario.github.io
-	2. luego clonelo en su maquina
-	3. cremaos el index y realizamos todo el proceso de git
+	2. luego clónelo en su maquina
+	3. cremados el índex y realizamos todo el proceso de git
 	4. vamos al repositorio y damos click en settings
 	5. buscamos pages 
 	6. va ha salir GitHup pages cambiamos branch none por el master o main
@@ -207,4 +206,4 @@ COMANDOS PARA VER QUIEN HIZO QUE
 	git blame (archivo) -L(linea1,linea2) -c					quien hizo que en linea1 hasta linea2
 	git
 
-git config--global alias.(nombreAlias) "shortlog -sn --all --no-merges"			para crear sobrenombres a los comandos	 
+git config--global alias.(nombreAlias) "shortlog -sn --all --no-merges"			para crear sobrenombres a los comandos	
